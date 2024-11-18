@@ -1,0 +1,37 @@
+#set nrowmax  42
+rseed 
+species hydrogen  /home/chuli/pps/D_ONCV_PBE-1.2.xml
+species oxygen    /home/chuli/pps/O_ONCV_PBE-1.2.xml
+species carbon    /home/chuli/pps/C_ONCV_PBE-1.2.xml
+#
+## scf
+set xc PBE
+set ecut 65
+set wf_dyn PSDA
+set ecutprec 5
+set scf_tol 0.00000001
+1_set_cell.qbox
+1.qbox
+#add a random perturbation to electronic wave function:
+randomize_wf
+#randomize_v 600
+run 0 500
+#load START.xml
+#
+## MD
+set atoms_dyn MD
+## 1 a.u. of time = 0.02418885 fs
+set thermostat BDP
+set th_temp 1000
+set th_time 1000
+set dt 10  
+#
+## remove center velocity
+reset_vcm
+#status
+#
+## 1
+set wf_diag F
+run 4000 8
+status
+save RESTART.xml
