@@ -1,6 +1,6 @@
 # First-principles MSMs
 Scripts to build Markov State Models to unveil the reaction kinetics of carbon in supercritical water based on first principles molecular dynamics simulations.
-https://doi.org/10.48550/arXiv.2401.07019
+C. Li, Y. Yao, D. Pan, https://doi.org/10.48550/arXiv.2401.07019
 
 
 Qbox-script: an example of input script to perform ab initio molecular dynamics simulations using QBOX code;
